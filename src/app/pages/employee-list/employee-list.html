@@ -1,0 +1,52 @@
+<div class="container">
+
+    <button mat-raised-button style="margin-right: 5px;" color="primary" routerLink="/add-employee">
+        Add Employee
+    </button>
+    <mat-form-field style="margin-right: 5px; max-width: 180px;">
+        <input matInput placeholder="Search by Name" [(ngModel)]="filterName" (keyup)="applyFilter()">
+    </mat-form-field>
+    <mat-form-field style="max-width: 180px;">
+        <input matInput placeholder="Search by Group" [(ngModel)]="filterGroup" (keyup)="applyFilter()">
+    </mat-form-field>
+    <button style="margin-left: 5px;" mat-raised-button color="warn" routerLink="/login">
+        Logout
+    </button>
+
+    <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="username">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Username </th>
+            <td mat-cell *matCellDef="let e"> {{e.username}} </td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+            <td mat-cell *matCellDef="let e">
+            <a [routerLink]="['/employee', e.username]">
+                {{e.firstName}} {{e.lastName}}
+            </a>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>Email</th>
+            <td mat-cell *matCellDef="let e">{{e.email}}</td>
+        </ng-container>
+        <ng-container matColumnDef="group">
+            <th mat-header-cell *matHeaderCellDef>Group</th>
+            <td mat-cell *matCellDef="let e">{{e.group}}</td>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let e">
+                <button style="background-color: yellow; border: 0cm; margin-right: 5px;" (click)="edit()">Edit</button>
+                <button style="background-color: red; border: 0cm; color:white" (click)="delete()">Delete</button>
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator
+        [pageSizeOptions]="[5,10,25,50]"
+        showFirstLastButtons>
+    </mat-paginator>
+
+</div>

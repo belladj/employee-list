@@ -1,0 +1,15 @@
+<mat-card *ngIf="employee">
+
+    <p><b>Username:</b> {{employee.username}}</p>
+    <p><b>First Name:</b> {{employee.firstName}}</p>
+    <p><b>Last Name:</b> {{employee.lastName}}</p>
+    <p><b>Email:</b> {{employee.email}}</p>
+    <p><b>Birth Date:</b> {{employee.birthDate | date}}</p>
+    <p><b>Salary:</b> {{employee.basicSalary | currency:'Rp.':'symbol':'1.2-2'}}</p>
+    <p><b>Status:</b> {{employee.status}}</p>
+    <p><b>Group:</b> {{employee.group}}</p>
+    <p><b>Description:</b> {{employee.description}}</p>
+
+    <button mat-raised-button color="primary" (click)="back()">OK</button>
+
+</mat-card>

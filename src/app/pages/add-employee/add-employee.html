@@ -1,0 +1,52 @@
+<div>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <h2>Add New Employee</h2>
+        <p><mat-form-field>
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="username" placeholder="Username">
+            </mat-form-field></p>
+        <p><mat-form-field>
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="firstName" placeholder="First Name">
+        </mat-form-field></p>
+        <p><mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="lastName" placeholder="Last Name">
+        </mat-form-field></p>
+        <p><mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" placeholder="Email">
+        </mat-form-field></p>
+        <p><mat-form-field>
+            <mat-label>Birth Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="birthDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker [max]="maxDate"></mat-datepicker>
+        </mat-form-field></p>
+        <p><mat-form-field>
+            <mat-label>Basic Salary</mat-label>
+            <input matInput type="number" formControlName="basicSalary">
+        </mat-form-field></p>
+        <p><mat-form-field>
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status">
+                <mat-option value="Active">Active</mat-option>
+                <mat-option value="Inactive">Inactive</mat-option>
+            </mat-select>
+        </mat-form-field></p>
+        <p><mat-form-field>
+            <mat-label>Group</mat-label>
+            <mat-select formControlName="group">
+                <mat-option *ngFor="let g of groups" [value]="g">{{g}}</mat-option>
+            </mat-select>
+        </mat-form-field></p>
+        <p><mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+        </mat-form-field></p>
+        <p>
+            <button mat-raised-button color="primary" style="margin-right: 5px;">Submit</button>
+            <button mat-raised-button color="primary" (click)="back()">Back</button>
+        </p>
+    </form>
+</div>

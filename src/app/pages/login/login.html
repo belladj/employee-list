@@ -1,0 +1,12 @@
+<div class="login-container">
+    <mat-card style="align-items: center; padding: 10%;">
+        <h2>Employee List</h2>
+        <mat-form-field>
+            <input matInput placeholder="Username" [(ngModel)]="username">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="password" placeholder="Password" [(ngModel)]="password" >
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="login(username, password)">Login</button>
+    </mat-card>
+</div>

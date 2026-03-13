@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+.container {
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+}
+
+.login-container{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+mat-card{
+  width:400px;
+}
+
+@media (max-width:768px){
+
+mat-card{
+  width:95%;
+}
+
+table{
+  font-size:12px;
+}
+
+}
