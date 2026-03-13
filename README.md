@@ -9,7 +9,7 @@ Employee List Project consisting of:
 1. clone repository
 2. install packages with ```npm install```
 3. deploy  ```ng serve```
-4. run in ```localhost:4200```
+4. open page in ```localhost``` as required
 
 ## How to build
 ```ng build```
